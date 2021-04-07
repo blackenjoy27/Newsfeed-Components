@@ -86,8 +86,68 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: "Stop Asian Hates",
+    date: "April 7, 2021",
+    firstParagraph: "Lorem",
+    secondParagraph: "waasdadasdadasdasdadsasdasdasdasdasdadad",
+    thirdParagraph: "asdadasdasdasdadasdasd"
+
+  },
+  {
+    title: "PPAP",
+    date: "April 7, 2021",
+    firstParagraph: "Lorem",
+    secondParagraph: "waasdadasdadasdasdadsasdasdasdasdasdadad",
+    thirdParagraph: "asdadasdasdasdadasdasd"
+
+  },
+  {
+    title: "COVID-19 Vaccine",
+    date: "April 7, 2021",
+    firstParagraph: "Lorem",
+    secondParagraph: "waasdadasdadasdasdadsasdasdasdasdasdadad",
+    thirdParagraph: "asdadasdasdasdadasdasd"
   }
 ];
+function articleMaker({title,date,firstParagraph,secondParagraph,thirdParagraph}){
+  let div = document.createElement("div");
+  div.classList.add("article");
+  let h2 = document.createElement("h2");
+  h2.textContent = title;
+  let p0 =  document.createElement("p");
+  p0.classList.add("date");
+  p0.textContent = date;
+  let p1 =  document.createElement("p");
+  p1.textContent = firstParagraph;
+
+  let p2 =  document.createElement("p");
+  p2.textContent = secondParagraph;
+ 
+  let p3 =  document.createElement("p");
+  p3.textContent = thirdParagraph;
+
+  let span = document.createElement("span");
+  span.textContent = "+"
+  span.classList.add("expandButton");
+  span.addEventListener("click",e=>{
+    div.classList.toggle("article-open");
+  })
+  div.appendChild(h2);
+  div.appendChild(p0);
+  div.appendChild(p1);
+  div.appendChild(p2);
+  div.appendChild(p3);
+  div.appendChild(span);
+  return div;
+}
+
+data.forEach(item=>{
+  const newDiv = articleMaker(item);
+  document.querySelector(".articles").appendChild(newDiv);
+})
+
 
 /*
   Step 1: Write a component called 'articleMaker' to create an article.
