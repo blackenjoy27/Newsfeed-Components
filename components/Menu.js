@@ -17,7 +17,7 @@ function menuMaker(menuItems){
   menuItems.forEach(element => {
       let li = document.createElement("li");
       li.textContent = element;
-      menu.appendChild(li);
+      ul.appendChild(li);
   });
   document.querySelector(".menu-button").addEventListener("click",e=>{
     menu.classList.toggle("menu--open")
